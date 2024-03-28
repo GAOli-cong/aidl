@@ -1,16 +1,13 @@
 // MyAidlInterface.aidl
 package com.glc.service;
+import com.glc.service.ICallBack;
 
-// Declare any non-default types here with import statements
+
 
 interface MyAidlInterface {
-    /**
-     * Demonstrates some basic types that you can use as parameters
-     * and return values in AIDL.
-     */
-    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
-            double aDouble, String aString);
 
     //求和
     int getAdd(int num1,int num2);
+    //获取字符串结果通过callBack返回
+    void getAddCallBack(int num1,int num2,ICallBack callBack);
 }

@@ -25,20 +25,17 @@ public class MyService extends Service {
 
    private class MyAidl extends MyAidlInterface.Stub{
 
-        @Override
-        public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException {
 
-        }
-        /**
-         * 求和
-         * @param num1
-         * @param num2
-         * @return result
-         * @throws RemoteException
-         */
-        @Override
-        public int getAdd(int num1, int num2) throws RemoteException {
-            return num1+num2;
-        }
-    }
+       @Override
+       public int getAdd(int num1, int num2) throws RemoteException {
+           return num1+num2;
+       }
+
+       @Override
+       public void getAddCallBack(int num1, int num2, ICallBack callBack) throws RemoteException {
+
+           String addStr =  (num1+num2)+"";
+           callBack.onCallBack("getAddCallBack",addStr);
+       }
+   }
 }
